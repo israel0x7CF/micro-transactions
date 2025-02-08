@@ -1,14 +1,14 @@
 "use server"
 import { promises } from "dns";
-import { db } from "../db"
-import { userInsertType, userSelectType, usersTable } from "../db/schema/userSchema"
+import { db } from "../app/db"
+import { userInsertType, userSelectType, usersTable } from "../app/db/schema/userSchema"
 import { eq } from "drizzle-orm";
 
 export async function createUser(user:userInsertType):Promise<userSelectType | null>{
     const insert = await db.insert(usersTable).values(user).returning();
 
     if(insert){
-
+        user.role = 2
         //further mutations can be done here
         return insert[0]
     }

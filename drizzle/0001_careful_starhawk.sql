@@ -1,1 +1,0 @@
-ALTER TABLE "users" ADD COLUMN "account_status" boolean DEFAULT false NOT NULL;
