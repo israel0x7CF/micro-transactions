@@ -32,3 +32,11 @@ export async function deactivateAccount(userId:number):Promise<boolean>{
 
     return deactivatedUser.length > 0 ? true:false;
 }
+
+export async function getUsers():Promise<userSelectType[] | null>{
+    const data =  await db.select().from(usersTable)
+    if(data){
+        return data
+    }
+    return null
+}

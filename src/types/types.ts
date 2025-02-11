@@ -1,5 +1,5 @@
 import {z,ZodType} from 'zod';
-import { userInsertType } from "@/app/db/schema/userSchema";
+import { userInsertType, userSelectType } from "@/app/db/schema/userSchema";
 
 export interface NavItem {
     title: string;
@@ -41,3 +41,13 @@ export interface GridNavigationProps {
       }
     ).url(),
   })
+
+  export type Action =
+  | { type: 'SET_AS_ACTIVE'; payload: userSelectType }
+  | { type: 'GET_USER'; }
+  | { type: 'INITIALIZE_USER'; payload: userSelectType }
+
+export type ContextProps = {
+  state: userSelectType
+  dispatch: React.Dispatch<Action>
+}

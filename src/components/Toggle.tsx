@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { ToggleButton } from "./toggle-button"
 import createUserForm from "./createUserForm"
-import ViewUsers from "./ViewUsers"
 import ViewPaymentHistroy from "./ViewPaymentHistroy"
+import { ViewUsers } from "./ViewUsers"
 const pages = [
   { id: 1, component: createUserForm, label: "create User" },
   { id: 2, component: ViewUsers, label: "View Users" },
